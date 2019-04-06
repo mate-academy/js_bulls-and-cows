@@ -6,7 +6,7 @@
 
 ## Rules
 
-- computed makes a number of 4 different digits
+- computer randomly generates a number of 4 different digits
 - player enters a number of 4 different digits too
 - computer compares given numbers and shows a result of 'bulls' and 'cows'
 - `bull` - guessed digit is on its place (index)

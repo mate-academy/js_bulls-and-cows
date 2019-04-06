@@ -35,9 +35,7 @@ rl.question('Please enter 4 digits number: ', (enteredNumber) => {
   console.log(
     `Computer generated ${generatedNumber}, you entered ${enteredNumber}.
     ----
-    ${answer}
-    `
-  );
+    ${answer}`);
 
   rl.close();
 });

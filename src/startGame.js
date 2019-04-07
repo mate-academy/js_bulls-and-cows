@@ -25,9 +25,9 @@ rl.question('Please enter 4 digits number: ', (enteredNumber) => {
   let answer = '';
 
   if (typeof result === 'undefined') {
-    answer = 'Wrong input. Please enter 4 digits number.';
+    answer = 'Wrong input. Please enter 4 different digits number.';
   } else {
-    const [bulls, cows] = result;
+    const { bulls, cows } = result;
 
     answer = `The result is ${bulls} bull(s) and ${cows} cow(s)`;
   }

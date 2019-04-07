@@ -10,7 +10,7 @@
 - player enters a number of 4 different digits too
 - computer compares given numbers and shows a result of 'bulls' and 'cows'
 - `bull` - guessed digit is on its place (index)
-- `cow` - guessed digit presents in the number but place (index) is wrong
+- `cow` - guessed digit exists in the number but the place (index) is wrong
 
 ## Example
 Computer makes `1234`, user prints `1345`. The result is one `bull` (guessed

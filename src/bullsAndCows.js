@@ -27,7 +27,7 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
 
-  if(enteredNumber === undefined || enteredNumber.length !== 4) {
+  if (enteredNumber === undefined || enteredNumber.length !== 4) {
     return undefined;
   }
 

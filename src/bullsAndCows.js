@@ -27,9 +27,9 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   const regExp = /[^0-9]/g;
-  const bullsAndCowsResult = {
-    'bulls': 0,
-    'cows': 0,
+  const gameScore = {
+    bulls: 0,
+    cows: 0,
   };
 
   if (enteredNumber === undefined
@@ -41,13 +41,13 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < generatedNumber.length; i++) {
     if (enteredNumber[i] === generatedNumber[i]) {
-      bullsAndCowsResult['bulls'] += 1;
+      gameScore.bulls += 1;
     } else if (generatedNumber.includes(enteredNumber[i])) {
-      bullsAndCowsResult['cows'] += 1;
+      gameScore.cows += 1;
     }
   }
 
-  return bullsAndCowsResult;
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

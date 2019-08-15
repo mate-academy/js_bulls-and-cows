@@ -42,7 +42,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   for (let i = 0; i < generated.length; i++) {
     if (generated[i] === entered[i]) {
       scoreGame.bulls++;
-    } else if (generated.includes(entered[i]) && generated[i] !== entered[i]) {
+    } else if (generated.includes(entered[i])) {
       scoreGame.cows++;
     }
   }

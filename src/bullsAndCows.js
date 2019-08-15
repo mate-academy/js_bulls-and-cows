@@ -29,18 +29,21 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   const score = {};
   let cowsCounter = 0;
   let bullsCounter = 0;
+  const genLength = generatedNumber.length;
 
-  if (enteredNumber.length !== 4) {
+  if (enteredNumber === undefined || enteredNumber.length !== genLength) {
     return undefined;
   } else {
     if (generatedNumber === enteredNumber) {
-      bullsCounter = 4;
+      bullsCounter = genLength;
     } else {
       for (let i = 0; i < generatedNumber.length; i++) {
         if (generatedNumber[i] === enteredNumber[i]) {
           bullsCounter += 1;
         } else if (enteredNumber.includes(generatedNumber[i])) {
           cowsCounter += 1;
+        } else if (enteredNumber[i] === enteredNumber[i + 1]) {
+          return undefined;
         }
       }
     }

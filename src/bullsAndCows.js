@@ -26,7 +26,28 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const regExp = /[^0-9]/g;
+  const gameScore = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  if (enteredNumber === undefined
+    || enteredNumber.length !== generatedNumber.length
+    || regExp.test(enteredNumber)
+    || enteredNumber.match(/(.)\1+/g)) {
+    return undefined;
+  }
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (enteredNumber[i] === generatedNumber[i]) {
+      gameScore.bulls += 1;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      gameScore.cows += 1;
+    }
+  }
+
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

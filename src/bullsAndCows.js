@@ -26,17 +26,16 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-
   if (enteredNumber === undefined || enteredNumber.length !== 4) {
     return undefined;
   }
 
-  let filter = enteredNumber.split('').map((num, index, arr) => {
+  const filter = enteredNumber.split('').map((num, index, arr) => {
     if (arr.indexOf(num) !== arr.lastIndexOf(num)) {
       return false;
     }
     return num;
-  })
+  });
 
   if (filter.includes(false)) {
     return undefined;
@@ -45,7 +44,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   const result = {
     'bulls': 0,
     'cows': 0,
-  }
+  };
 
   generatedNumber.split('').forEach((num, index, arr) => {
     if (enteredNumber.indexOf(num) === index) {
@@ -53,10 +52,9 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     } else if (enteredNumber.includes(num)) {
       result.cows += 1;
     }
-  })
+  });
 
   return result;
 }
 
-console.log(bullsAndCows('1234','1234'))
 module.exports = bullsAndCows;

@@ -37,9 +37,11 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  for (let i = 0; i < 4; i++) {
-    if (enteredNumber[i].includes(enteredNumber[i + 1])) {
-      return undefined;
+  for (let i = 0; i < enteredNumber.length - 1; i++) {
+    for (let j = i + 1; j < enteredNumber; j++) {
+      if (enteredNumber[i] === enteredNumber[j]) {
+        return undefined;
+      }
     }
   }
 

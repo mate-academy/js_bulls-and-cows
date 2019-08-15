@@ -26,7 +26,52 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const bullsAndCowsInfo = {
+    bulls: 0,
+    cows: 0,
+  };
+  let cowsCounter = 0;
+  let bullsCounter = 0;
+  let findedRepeatedNumber = 0;
+
+  if (generatedNumber === undefined
+    || enteredNumber === undefined
+    || generatedNumber.length !== 4
+    || enteredNumber.length !== 4) {
+    return undefined;
+  }
+
+  const generatedNumberList = generatedNumber.split('');
+  const enteredNumberList = enteredNumber.split('');
+
+  enteredNumberList.forEach((digit, pos) => {
+    if (enteredNumberList.indexOf(digit) !== pos) {
+      findedRepeatedNumber += 1;
+    };
+  });
+
+  if (findedRepeatedNumber !== 0) {
+    return undefined;
+  }
+
+  if (findedRepeatedNumber !== 0) {
+    return undefined;
+  }
+
+  generatedNumberList.map(digit => {
+    if (enteredNumberList.includes(digit)
+      && generatedNumberList.indexOf(digit)
+      === enteredNumberList.indexOf(digit)) {
+      bullsCounter += 1;
+    } else if (enteredNumberList.includes(digit)) {
+      cowsCounter += 1;
+    }
+  });
+
+  bullsAndCowsInfo.bulls = bullsCounter;
+  bullsAndCowsInfo.cows = cowsCounter;
+
+  return bullsAndCowsInfo;
 }
 
 module.exports = bullsAndCows;

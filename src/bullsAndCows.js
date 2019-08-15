@@ -35,22 +35,20 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   const entered = [...enteredNumber];
   const generated = [...generatedNumber];
-  const result = {
+  const bullsAndCowsCounter = {
     bulls: 0,
     cows: 0,
   };
 
   for (let i = 0; i < 4; i++) {
     if (generated[i] === entered[i]) {
-      result.bulls++;
-    } else {
-      if (entered.find(item => generated[i] === item) !== undefined) {
-        result.cows++;
-      }
+      bullsAndCowsCounter.bulls++;
+    } else if (entered.includes(generated[i])) {
+      bullsAndCowsCounter.cows++;
     }
   }
 
-  return result;
+  return bullsAndCowsCounter;
 }
 
 module.exports = bullsAndCows;

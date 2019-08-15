@@ -30,7 +30,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   let entered = !enteredNumber ? '' : enteredNumber;
   entered = Array.from(new Set(entered.split(''))).join('');
 
-  const result = {
+  const scoreGame = {
     bulls: 0,
     cows: 0,
   };
@@ -41,13 +41,13 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < generated.length; i++) {
     if (generated[i] === entered[i]) {
-      result.bulls++;
+      scoreGame.bulls++;
     } else if (generated.includes(entered[i]) && generated[i] !== entered[i]) {
-      result.cows++;
+      scoreGame.cows++;
     }
   }
 
-  return result;
+  return scoreGame;
 }
 
 module.exports = bullsAndCows;

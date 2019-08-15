@@ -25,8 +25,37 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
-function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+function bullsAndCows(gen, inNum) {
+  const match = {
+    bulls: 0,
+    cows: 0,
+  };
+  let j = 0;
+
+  if (inNum === undefined || inNum.length > 4 || inNum.length < 4) {
+    return undefined;
+  }
+  for (const ripit of inNum) {
+    for (const rp of inNum) {
+      if (inNum.indexOf(ripit) === inNum.indexOf(rp)) {
+        j++;
+        if (j > 1) { return undefined; }
+      }
+    }
+    j = 0;
+  }
+
+  for (const word of inNum) {
+    if (gen.includes(word)
+    && gen.indexOf(word) === inNum.indexOf(word)) {
+      match.bulls++;
+    } else if (gen.includes(word)
+    && gen.indexOf(word) !== inNum.indexOf(word)) {
+      match.cows++;
+    }
+  }
+
+  return match;
 }
 
 module.exports = bullsAndCows;

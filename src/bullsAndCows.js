@@ -40,7 +40,9 @@ function bullsAndCows(gen, inNum) {
   for (const str of inNum) {
     if (!compareResult.includes(str)) {
       compareResult.push(str);
-    } else { return undefined; }
+    } else {
+      return undefined;
+    }
   }
 
   for (const word of inNum) {

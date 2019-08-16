@@ -26,29 +26,25 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const score = {};
-  let cowsCounter = 0;
-  let bullsCounter = 0;
+  const score = { bulls: 0, cows: 0 };
   const genLength = generatedNumber.length;
 
   if (enteredNumber === undefined || enteredNumber.length !== genLength) {
     return undefined;
   } else {
     if (generatedNumber === enteredNumber) {
-      bullsCounter = genLength;
+      score.bulls = genLength;
     } else {
       for (let i = 0; i < generatedNumber.length; i++) {
-        if (generatedNumber[i] === enteredNumber[i]) {
-          bullsCounter += 1;
-        } else if (enteredNumber.includes(generatedNumber[i])) {
-          cowsCounter += 1;
-        } else if (enteredNumber[i] === enteredNumber[i + 1]) {
+        if (enteredNumber.includes(enteredNumber[i], i + 1)) {
           return undefined;
+        } else if (generatedNumber[i] === enteredNumber[i]) {
+          score.bulls += 1;
+        } else if (enteredNumber.includes(generatedNumber[i])) {
+          score.cows += 1;
         }
       }
     }
-    score.bulls = bullsCounter;
-    score.cows = cowsCounter;
   }
   return score;
 }

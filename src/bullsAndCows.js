@@ -30,19 +30,17 @@ function bullsAndCows(gen, inNum) {
     bulls: 0,
     cows: 0,
   };
-  let j = 0;
 
   if (inNum === undefined || inNum.length > 4 || inNum.length < 4) {
     return undefined;
   }
-  for (const ripit of inNum) {
-    for (const rp of inNum) {
-      if (inNum.indexOf(ripit) === inNum.indexOf(rp)) {
-        j++;
-        if (j > 1) { return undefined; }
-      }
-    }
-    j = 0;
+
+  const compareResult = [];
+
+  for (const str of inNum) {
+    if (!compareResult.includes(str)) {
+      compareResult.push(str);
+    } else { return undefined; }
   }
 
   for (const word of inNum) {

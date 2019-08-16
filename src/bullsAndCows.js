@@ -35,11 +35,11 @@ function bullsAndCows(gen, inNum) {
     return undefined;
   }
 
-  const compareResult = [];
+  const repeatCompare = [];
 
   for (const str of inNum) {
-    if (!compareResult.includes(str)) {
-      compareResult.push(str);
+    if (!repeatCompare.includes(str)) {
+      repeatCompare.push(str);
     } else {
       return undefined;
     }

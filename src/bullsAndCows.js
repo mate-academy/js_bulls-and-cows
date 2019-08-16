@@ -33,13 +33,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     cows: 0,
   };
 
-  if (enteredNumber !== '') {
-    enteredNum = enteredNumber;
-  } else {
-    return undefined;
-  }
-
-  if (!isNaN(enteredNum)) {
+  if (enteredNumber !== '' && !isNaN(enteredNum)) {
     enteredNum = enteredNumber;
   } else {
     return undefined;

@@ -26,13 +26,14 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const bullsAndCowsInfo = {
-    bulls: 0,
-    cows: 0,
-  };
-  let cowsCounter = 0;
   let bullsCounter = 0;
-  let findedRepeatedNumber = 0;
+  let cowsCounter = 0;
+  let foundRepeatedNumber = 0;
+
+  const bullsAndCowsInfo = {
+    bulls: bullsCounter,
+    cows: cowsCounter,
+  };
 
   if (generatedNumber === undefined
     || enteredNumber === undefined
@@ -46,15 +47,11 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   enteredNumberList.forEach((digit, pos) => {
     if (enteredNumberList.indexOf(digit) !== pos) {
-      findedRepeatedNumber += 1;
+      foundRepeatedNumber += 1;
     };
   });
 
-  if (findedRepeatedNumber !== 0) {
-    return undefined;
-  }
-
-  if (findedRepeatedNumber !== 0) {
+  if (foundRepeatedNumber !== 0) {
     return undefined;
   }
 

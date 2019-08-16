@@ -45,6 +45,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
+  enteredNum = Array.from(new Set(enteredNumber.split(''))).join('');
+
   if (generatedNum.length !== enteredNum.length) {
     return undefined;
   }

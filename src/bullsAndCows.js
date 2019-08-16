@@ -26,7 +26,27 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const lengthStrins = 4;
+  const countBullsCows = {
+    bulls: 0,
+    cows: 0,
+  };
+  const pattern = /^\d{4}$/;
+  const isConsistedRepeated = (str) => str.length !== new Set(str).size;
+
+  if (!pattern.test(enteredNumber) || isConsistedRepeated(enteredNumber)) {
+    return undefined;
+  }
+
+  for (let i = 0; i < lengthStrins; i++) {
+    if (enteredNumber[i] === generatedNumber[i]) {
+      countBullsCows.bulls++;
+    } else if (generatedNumber.indexOf(enteredNumber[i]) !== -1) {
+      countBullsCows.cows++;
+    }
+  }
+
+  return countBullsCows;
 }
 
 module.exports = bullsAndCows;

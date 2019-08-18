@@ -26,7 +26,47 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  function isNumberValid(num) {
+    if ((typeof num) !== 'string') {
+      return false;
+    }
+
+    if (num.length !== 4) {
+      return false;
+    }
+
+    let validNum = '';
+    for (const item of num) {
+      if (validNum.includes(item) || item < '0' || item > '9') {
+        return false;
+      } else {
+        validNum += item;
+      }
+    }
+
+    return true;
+  }
+
+  if (!isNumberValid(enteredNumber)) {
+    return undefined;
+  }
+
+  const gameResult = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (enteredNumber.indexOf(generatedNumber[i]) === i) {
+      gameResult.bulls++;
+    } else {
+      if (enteredNumber.includes(generatedNumber[i])) {
+        gameResult.cows++;
+      }
+    }
+  }
+
+  return gameResult;
 }
 
 module.exports = bullsAndCows;

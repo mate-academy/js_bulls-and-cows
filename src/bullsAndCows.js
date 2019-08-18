@@ -27,7 +27,7 @@
  */
 
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const BullsAndCows = {
+  let bullsAndCowsResult = {
     'bulls': 0,
     'cows': 0,
   };
@@ -40,13 +40,25 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   for (let i = 0; i < generatedNumber.length; i++) {
+    // if (generatedNumber[i] === enteredNumber[i]) {
+    //   bullsAndCowsResult['bulls'] = bullsAndCowsResult['bulls'] + 1;
+    // } else if (generatedNumber.includes(enteredNumber[i])) {
+    //   bullsAndCowsResult['cows'] = bullsAndCowsResult['cows'] + 1;
+    // }
     if (generatedNumber[i] === enteredNumber[i]) {
-      BullsAndCows['bulls'] = BullsAndCows['bulls'] + 1;
+      bullsAndCowsResult = {
+        ...bullsAndCowsResult,
+        bulls: bullsAndCowsResult.bulls + 1,
+      };
     } else if (generatedNumber.includes(enteredNumber[i])) {
-      BullsAndCows['cows'] = BullsAndCows['cows'] + 1;
+      bullsAndCowsResult = {
+        ...bullsAndCowsResult,
+        cows: bullsAndCowsResult.cows + 1,
+      };
     }
   }
-  return BullsAndCows;
+
+  return bullsAndCowsResult;
 }
 
 function isRepeatSymbol(string) {

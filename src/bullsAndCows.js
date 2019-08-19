@@ -45,12 +45,12 @@ function bullsAndCows(genNum, inNum) {
     }
   }
 
-  for (const word of inNum) {
-    if (genNum.includes(word)
-    && genNum.indexOf(word) === inNum.indexOf(word)) {
+  for (const letter of inNum) {
+    if (genNum.includes(letter)
+    && genNum.indexOf(letter) === inNum.indexOf(letter)) {
       gameScore.bulls++;
-    } else if (genNum.includes(word)
-    && genNum.indexOf(word) !== inNum.indexOf(word)) {
+    } else if (genNum.includes(letter)
+    && genNum.indexOf(letter) !== inNum.indexOf(letter)) {
       gameScore.cows++;
     }
   }

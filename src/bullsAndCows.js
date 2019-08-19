@@ -27,8 +27,8 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   const generatedNum = generatedNumber;
-  let enteredNum;
-  const resultGame = {
+  let enteredNum = [];
+  const gameScore = {
     bulls: 0,
     cows: 0,
   };
@@ -47,13 +47,13 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < generatedNum.length; i += 1) {
     if (generatedNum[i] === enteredNum[i]) {
-      resultGame.bulls += 1;
+      gameScore.bulls += 1;
     } else if (generatedNum.includes(enteredNum[i])) {
-      resultGame.cows += 1;
+      gameScore.cows += 1;
     }
   }
 
-  return resultGame;
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

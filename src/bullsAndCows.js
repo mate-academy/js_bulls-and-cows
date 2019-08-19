@@ -27,7 +27,7 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   const lengthString = 4;
-  const countBullsCows = {
+  const gameScore = {
     bulls: 0,
     cows: 0,
   };

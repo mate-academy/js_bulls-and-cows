@@ -28,39 +28,35 @@
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (generatedNumber === undefined
     || enteredNumber === undefined
-    || generatedNumber === null
-    || enteredNumber === null
     || generatedNumber.match(/^\d{4}$/) === null
     || enteredNumber.match(/^\d{4}$/) === null) {
-    return;
+    return undefined;
   }
 
   let enteredNumberArray = enteredNumber.split('');
   const generatedNumberArray = generatedNumber.split('');
-  let bulls = 0;
-  let cows = 0;
+  const animals = {
+    bulls: 0,
+    cows: 0,
+  };
 
-  enteredNumberArray = enteredNumberArray.filter(
-    (item, index, array) => {
-      return index === array.indexOf(item) && index === array.lastIndexOf(item);
-    }
-  );
+  enteredNumberArray = enteredNumberArray.filter((item, index, array) => {
+    return index === array.indexOf(item) && index === array.lastIndexOf(item);
+  });
 
   if (enteredNumberArray.length !== 4) {
-    return;
+    return undefined;
   }
 
-  enteredNumberArray.forEach(
-    (item, index) => {
-      if (item === generatedNumberArray[index]) {
-        bulls++;
-      } else if (generatedNumberArray.includes(item)) {
-        cows++;
-      }
+  enteredNumberArray.forEach((item, index) => {
+    if (item === generatedNumberArray[index]) {
+      animals.bulls++;
+    } else if (generatedNumberArray.includes(item)) {
+      animals.cows++;
     }
-  );
+  });
 
-  return { bulls: bulls, cows: cows };
+  return animals;
 }
 
 module.exports = bullsAndCows;

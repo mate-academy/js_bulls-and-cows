@@ -38,15 +38,15 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  for (let i = 0; i < lengthStrins; i++) {
+  for (let i = 0; i < lengthString; i++) {
     if (enteredNumber[i] === generatedNumber[i]) {
-      countBullsCows.bulls++;
+      gameScore.bulls++;
     } else if (generatedNumber.indexOf(enteredNumber[i]) !== -1) {
-      countBullsCows.cows++;
+      gameScore.cows++;
     }
   }
 
-  return countBullsCows;
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

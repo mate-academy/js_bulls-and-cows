@@ -26,7 +26,7 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const lengthStrins = 4;
+  const lengthString = 4;
   const countBullsCows = {
     bulls: 0,
     cows: 0,

@@ -32,7 +32,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     cows: 0,
   };
   const pattern = /^\d{4}$/;
-  const isConsistedRepeated = (str) => str.length !== new Set(str).size;
+  const isConsistedRepeated = string => string.length !== new Set(string).size;
 
   if (!pattern.test(enteredNumber) || isConsistedRepeated(enteredNumber)) {
     return undefined;

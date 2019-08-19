@@ -37,20 +37,20 @@ function bullsAndCows(genNum, inNum) {
 
   const repeatCompare = [];
 
-  for (const letter of inNum) {
-    if (!repeatCompare.includes(letter)) {
-      repeatCompare.push(letter);
+  for (const symbol of inNum) {
+    if (!repeatCompare.includes(symbol)) {
+      repeatCompare.push(symbol);
     } else {
       return undefined;
     }
   }
 
-  for (const letter of inNum) {
-    if (genNum.includes(letter)
-    && genNum.indexOf(letter) === inNum.indexOf(letter)) {
+  for (const symbol of inNum) {
+    if (genNum.includes(symbol)
+    && genNum.indexOf(symbol) === inNum.indexOf(symbol)) {
       gameScore.bulls++;
-    } else if (genNum.includes(letter)
-    && genNum.indexOf(letter) !== inNum.indexOf(letter)) {
+    } else if (genNum.includes(symbol)
+    && genNum.indexOf(symbol) !== inNum.indexOf(symbol)) {
       gameScore.cows++;
     }
   }

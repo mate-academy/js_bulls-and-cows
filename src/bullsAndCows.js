@@ -25,8 +25,8 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
-function bullsAndCows(gen, inNum) {
-  const match = {
+function bullsAndCows(genNum, inNum) {
+  const gameScore = {
     bulls: 0,
     cows: 0,
   };
@@ -37,25 +37,25 @@ function bullsAndCows(gen, inNum) {
 
   const repeatCompare = [];
 
-  for (const str of inNum) {
-    if (!repeatCompare.includes(str)) {
-      repeatCompare.push(str);
+  for (const letter of inNum) {
+    if (!repeatCompare.includes(letter)) {
+      repeatCompare.push(letter);
     } else {
       return undefined;
     }
   }
 
   for (const word of inNum) {
-    if (gen.includes(word)
-    && gen.indexOf(word) === inNum.indexOf(word)) {
-      match.bulls++;
-    } else if (gen.includes(word)
-    && gen.indexOf(word) !== inNum.indexOf(word)) {
-      match.cows++;
+    if (genNum.includes(word)
+    && genNum.indexOf(word) === inNum.indexOf(word)) {
+      gameScore.bulls++;
+    } else if (genNum.includes(word)
+    && genNum.indexOf(word) !== inNum.indexOf(word)) {
+      gameScore.cows++;
     }
   }
 
-  return match;
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

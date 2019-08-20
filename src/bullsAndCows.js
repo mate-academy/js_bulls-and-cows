@@ -27,7 +27,7 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   const generatedNum = generatedNumber;
-  let enteredNum = [];
+  let enteredNum = '';
   const gameScore = {
     bulls: 0,
     cows: 0,

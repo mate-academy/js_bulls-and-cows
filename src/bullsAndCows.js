@@ -26,7 +26,25 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (enteredNumber === undefined
+    || [...new Set(enteredNumber)].join('')
+      .replace(/[a-zA-Z]/g, '').length !== 4) {
+    return undefined;
+  }
+
+  let bulls = 0;
+  let cows = 0;
+  const genNumArr = generatedNumber.split('');
+  const entNumArr = enteredNumber.split('');
+
+  entNumArr.forEach(num => {
+    if (genNumArr.indexOf(num) === entNumArr.indexOf(num)) {
+      bulls++;
+    } else if (genNumArr.indexOf(num) !== -1) {
+      cows++;
+    }
+  });
+  return { 'bulls': bulls, 'cows': cows };
 }
 
 module.exports = bullsAndCows;

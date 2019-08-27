@@ -26,11 +26,9 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  if (
-    enteredNumber === undefined
+  if (enteredNumber === undefined
     || [...new Set(enteredNumber)].join('')
-      .replace(/[a-zA-Z]/g, '').length !== 4
-  ) {
+      .replace(/[a-zA-Z]/g, '').length !== 4) {
     return undefined;
   }
   const bAndC = {};

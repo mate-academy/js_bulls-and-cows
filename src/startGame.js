@@ -7,7 +7,7 @@ const generateRandomDigit = () => `${Math.floor(Math.random() * 10)}`;
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 rl.question('Please enter 4 digits number: ', (enteredNumber) => {

@@ -27,6 +27,30 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+  const uniqueNumber = [...new Set(enteredNumber)];
+
+  if (uniqueNumber.length !== 4 || isNaN(enteredNumber)) {
+    return;
+  }
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      result.bulls++;
+    }
+    for (let j = 0; j < enteredNumber.length; j++) {
+      if (i === j) {
+        continue;
+      } else if (generatedNumber[i] === enteredNumber[j]) {
+        result.cows++;
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = bullsAndCows;

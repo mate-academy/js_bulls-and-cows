@@ -7,7 +7,7 @@ const generateRandomDigit = () => `${Math.floor(Math.random() * 10)}`;
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout // eslint-disable-line
 });
 
 rl.question('Please enter 4 digits number: ', (enteredNumber) => {
@@ -32,7 +32,7 @@ rl.question('Please enter 4 digits number: ', (enteredNumber) => {
     answer = `The result is ${bulls} bull(s) and ${cows} cow(s)`;
   }
 
-  console.log(
+  console.log( // eslint-disable-line
     `Computer generated ${generatedNumber}, you entered ${enteredNumber}.
     ----
     ${answer}`);

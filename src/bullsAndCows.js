@@ -26,7 +26,19 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const countBullsAndCows = { 'bulls': 0, 'cows': 0 };
+  if ([...new Set(enteredNumber)].length !== 4) {
+    return undefined;
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (enteredNumber[i] === generatedNumber[i]) {
+      countBullsAndCows['bulls']++;
+    } else if (generatedNumber.indexOf(enteredNumber[i]) + 1) {
+      countBullsAndCows['cows']++;
+    }
+  }
+  return countBullsAndCows;
 }
 
 module.exports = bullsAndCows;

@@ -26,7 +26,25 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (String(enteredNumber) === 'undefined'
+  || enteredNumber.length !== 4
+  || String(+enteredNumber) === 'NaN') {
+    return undefined;
+  }
+  const bullsCow = { bulls: 0, cows: 0 };
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    if (enteredNumber.indexOf(enteredNumber[i], 0) !== i) {
+      return undefined;
+    }
+
+    if (enteredNumber[i] === generatedNumber[i]) {
+      bullsCow.bulls++;
+    } else if (generatedNumber.indexOf(enteredNumber[i]) > -1) {
+      bullsCow.cows++;
+    }
+  }
+  return bullsCow;
 }
 
 module.exports = bullsAndCows;

@@ -51,30 +51,27 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   let bulls = 0;
-  const cows = [];
-  let countCows = 0;
-  const enteredNumberToInt = [];
+  const checkCows = [];
+  let cows = 0;
 
   for (let i = 0; i < generatedNum.length; i++) {
     if (+generatedNum[i] === +enterNum[i]) {
       bulls++;
     } else {
-      cows.push(+generatedNum[i]);
-    }
-    enteredNumberToInt.push(+enteredNumber[i]);
-  }
-  for (let i = 0; i < cows.length; i++) {
-    if (enteredNumberToInt.indexOf(cows[i]) !== -1) {
-      countCows++;
+      checkCows.push(+enterNum[i]);
     }
   }
 
-  const result = {
+  for (let i = 0; i < checkCows.length; i++) {
+    if (generatedNumber.includes(checkCows[i])) {
+      cows++;
+    }
+  }
+
+  return {
     'bulls': bulls,
-    'cows': countCows,
+    'cows': cows,
   };
-
-  return (result);
 }
 
 module.exports = bullsAndCows;

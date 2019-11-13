@@ -27,13 +27,16 @@
  */
 
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const resultObj = {};
-  let bulls = 0;
+  const score = {
+    bulls: 0,
+    cows: 0,
+  };
+
   if (!generatedNumber || !enteredNumber) {
     return undefined;
   }
 
-  if (generatedNumber.length !== enteredNumber.length) {
+  if (generatedNumber.length !== 4 || enteredNumber.length !== 4) {
     return undefined;
   }
 
@@ -41,30 +44,21 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  if (
-    [...new Set([...generatedNumber])].length !== generatedNumber.length
-    || [...new Set([...enteredNumber])].length !== enteredNumber.length
+  if ((new Set(generatedNumber).size !== generatedNumber.length)
+    || (new Set(enteredNumber).size !== enteredNumber.length)
   ) {
     return undefined;
   }
 
-  const controlArr = [...generatedNumber];
   for (let i = 0; i < generatedNumber.length; i++) {
-    if (generatedNumber[i] === enteredNumber[i]) {
-      controlArr[i] = 'exit';
-      bulls++;
-      resultObj['bulls'] = bulls;
+    if ((generatedNumber[i] === enteredNumber[i])) {
+      score.bulls++;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      score.cows++;
     }
   }
 
-  if (bulls === 0) {
-    resultObj['bulls'] = 0;
-  }
-
-  resultObj['cows'] = controlArr.filter(item =>
-    [...enteredNumber].includes(item)
-  ).length;
-  return resultObj;
+  return score;
 }
 
 module.exports = bullsAndCows;

@@ -46,7 +46,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     }
   }
 
-  return { bulls: countBulls, cows: countCows };
+  return { bulls, cows };
 }
 
 module.exports = bullsAndCows;

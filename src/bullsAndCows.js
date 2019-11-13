@@ -26,19 +26,19 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const countBullsAndCows = { 'bulls': 0, 'cows': 0 };
+  const score = { 'bulls': 0, 'cows': 0 };
   if ([...new Set(enteredNumber)].length !== 4) {
     return undefined;
   }
 
   for (let i = 0; i < 4; i++) {
     if (enteredNumber[i] === generatedNumber[i]) {
-      countBullsAndCows['bulls']++;
-    } else if (generatedNumber.indexOf(enteredNumber[i]) + 1) {
-      countBullsAndCows['cows']++;
+      score.bulls++;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      score.cows++;
     }
   }
-  return countBullsAndCows;
+  return score;
 }
 
 module.exports = bullsAndCows;

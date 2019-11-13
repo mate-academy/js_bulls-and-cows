@@ -28,7 +28,7 @@
 
 function bullsAndCows(generatedNumber, enteredNumber) {
   let bulls = 0;
-  let countCows = 0;
+  let cows = 0;
 
   if (!enteredNumber) {
     return undefined;

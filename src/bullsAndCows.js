@@ -25,8 +25,33 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
+
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  let bulls = 0;
+  let cows = 0;
+
+  if (typeof (enteredNumber) === 'undefined'
+    || enteredNumber.length !== 4
+    || isNaN(+enteredNumber)) {
+    return undefined;
+  }
+
+  const repeatNum = enteredNumber.replace(/(.)(?=.*\1)/g, '');
+  if (enteredNumber.length !== repeatNum.length) {
+    return undefined;
+  }
+
+  for (const digit in generatedNumber) {
+    if (enteredNumber.includes(generatedNumber[digit])) {
+      if (+digit === enteredNumber.indexOf(generatedNumber[digit])) {
+        bulls++;
+      } else {
+        cows++;
+      }
+    }
+  }
+
+  return { 'bulls': bulls, 'cows': cows };
 }
 
 module.exports = bullsAndCows;

@@ -40,9 +40,9 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < 4; i++) {
     if (generatedNumber[i] === enteredNumber[i]) {
-      countBulls++;
+      bulls++;
     } else if (generatedNumber.includes(enteredNumber[i])) {
-      countCows++;
+      cows++;
     }
   }
 

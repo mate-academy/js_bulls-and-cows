@@ -25,42 +25,34 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
-function bullsAndCows(comp, user) {
-  let bulls = 0;
-  let cows = 0;
-  let counter = 0;
+function bullsAndCows(generatedNumber, enteredNumber) {
+  const score = {
+    bulls: 0,
+    cows: 0,
+  };
 
-  if (typeof user !== 'string') {
+  if (typeof enteredNumber !== 'string' || enteredNumber.length !== 4) {
     return undefined;
   }
 
-  for (let i = 0; i < 4; i++) {
-    for (let j = i + 1; j < 4; j++) {
-      if (user[i] === user[j]) {
-        counter++;
-        break;
-      }
-    }
-  }
-
-  if (user.length !== 4 || counter > 0) {
-    return undefined;
-  }
-
-  for (const digit of user) {
-    if (comp.includes(digit)) {
-      cows++;
+  for (const digit of enteredNumber) {
+    if (enteredNumber.indexOf(digit) !== enteredNumber.lastIndexOf(digit)) {
+      return undefined;
     }
   }
 
   for (let i = 0; i < 4; i++) {
-    if (comp.indexOf(user[i]) === i) {
-      cows--;
-      bulls++;
+    if (generatedNumber.includes(enteredNumber[i])) {
+      score.cows++;
+    }
+
+    if (generatedNumber[i] === enteredNumber[i]) {
+      score.cows--;
+      score.bulls++;
     }
   }
 
-  return { bulls: bulls, cows: cows };
+  return score;
 }
 
 module.exports = bullsAndCows;

@@ -27,8 +27,10 @@
  */
 
 function bullsAndCows(generatedNumber, enteredNumber) {
-  let bulls = 0;
-  let cows = 0;
+  const score = {
+    cows: 0,
+    bulls: 0,
+  };
 
   if (typeof (enteredNumber) === 'undefined'
     || enteredNumber.length !== 4
@@ -42,16 +44,15 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   for (const digit in generatedNumber) {
-    if (enteredNumber.includes(generatedNumber[digit])) {
-      if (+digit === enteredNumber.indexOf(generatedNumber[digit])) {
-        bulls++;
-      } else {
-        cows++;
-      }
+    if (enteredNumber.includes(generatedNumber[digit])
+        && +digit === enteredNumber.indexOf(generatedNumber[digit])) {
+      score.bulls++;
+    } else if (enteredNumber.includes(generatedNumber[digit])) {
+      score.cows++;
     }
   }
 
-  return { 'bulls': bulls, 'cows': cows };
+  return score;
 }
 
 module.exports = bullsAndCows;

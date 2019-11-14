@@ -44,8 +44,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   for (const digit in generatedNumber) {
-    if (enteredNumber.includes(generatedNumber[digit])
-        && +digit === enteredNumber.indexOf(generatedNumber[digit])) {
+    if (+digit === enteredNumber.indexOf(generatedNumber[digit])) {
       score.bulls++;
     } else if (enteredNumber.includes(generatedNumber[digit])) {
       score.cows++;

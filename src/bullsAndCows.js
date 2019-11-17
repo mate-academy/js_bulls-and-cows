@@ -30,41 +30,27 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  const generatedNum = generatedNumber.split('');
-  const enterNum = enteredNumber.split('');
-
-  if (generatedNum.length > enterNum.length
-    || generatedNum.length < enterNum.length) {
-    return undefined;
-  }
-
-  const repeatNumberOrNot = [];
-
-  for (const str of enterNum) {
-    if (!repeatNumberOrNot.includes(str)) {
-      repeatNumberOrNot.push(str);
-    }
-  }
-
-  if (enterNum.length !== repeatNumberOrNot.length) {
+  if (enteredNumber.length !== 4) {
     return undefined;
   }
 
   let bulls = 0;
-  const checkCows = [];
   let cows = 0;
 
-  for (let i = 0; i < generatedNum.length; i++) {
-    if (+generatedNum[i] === +enterNum[i]) {
-      bulls++;
-    } else {
-      checkCows.push(+enterNum[i]);
+  for (let i = 0; i < enteredNumber.length; i++) {
+    const a = enteredNumber.replace(enteredNumber[i], '');
+    if (a.includes(enteredNumber[i])) {
+      return undefined;
     }
-  }
 
-  for (let i = 0; i < checkCows.length; i++) {
-    if (generatedNumber.includes(checkCows[i])) {
-      cows++;
+    switch (generatedNumber[i]) {
+      case enteredNumber[i]:
+        bulls++;
+        break;
+      default:
+        if (enteredNumber.includes(generatedNumber[i])) {
+          cows++;
+        }
     }
   }
 

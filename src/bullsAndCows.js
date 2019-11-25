@@ -29,28 +29,33 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   if (enteredNumber === undefined) {
     return undefined;
   }
+
   if (generatedNumber.length !== 4
     || enteredNumber.length !== 4) {
     return undefined;
   }
+
   if ((enteredNumber.split('')).length !== (
     [...new Set(enteredNumber.split(''))]
   ).length) {
     return undefined;
   }
-  const farm = {
+
+  const score = {
     bulls: 0,
     cows: 0,
   };
+
   generatedNumber.split('').map((digit, index) => {
     if (digit === enteredNumber[index]) {
-      farm.bulls++;
+      score.bulls++;
     } else if (enteredNumber.includes(digit)
       && digit !== enteredNumber[index]) {
-      farm.cows++;
+      score.cows++;
     }
   });
-  return farm;
+
+  return score;
 }
 
 module.exports = bullsAndCows;

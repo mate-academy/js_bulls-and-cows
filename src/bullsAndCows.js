@@ -48,8 +48,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     }
   }
 
-  generatedNumberArr.map((bull, indexBull) => {
-    enteredNumberArr.map((cow, indexCow) => {
+  generatedNumberArr.forEach((bull, indexBull) => {
+    enteredNumberArr.forEach((cow, indexCow) => {
       if (bull === cow) {
         if (indexBull === indexCow) {
           result.bulls++;

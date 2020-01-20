@@ -26,7 +26,43 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (!(+enteredNumber < 9877 && +enteredNumber > 1022)) {
+    return undefined;
+  }
+
+  const compNumber = {};
+  const playerNumber = {};
+  const compSoleNumber = {};
+  const playerSoleNumber = {};
+
+  let cows = 0;
+  let bulls = 0;
+
+  for (let i = 0; i < 4; ++i) {
+    if (generatedNumber[i] in compNumber || enteredNumber[i] in playerNumber) {
+      return undefined;
+    } else {
+      compNumber[generatedNumber[i]] = true;
+      playerNumber[enteredNumber[i]] = true;
+    }
+
+    if (generatedNumber[i] === enteredNumber[i]) {
+      ++bulls;
+    } else {
+      compSoleNumber[generatedNumber[i]] = true;
+      playerSoleNumber[enteredNumber[i]] = true;
+    }
+  }
+
+  for (const val in compSoleNumber) {
+    if (val in playerSoleNumber) {
+      ++cows;
+    }
+  }
+
+  return {
+    'bulls': bulls, 'cows': cows,
+  };
 }
 
 module.exports = bullsAndCows;

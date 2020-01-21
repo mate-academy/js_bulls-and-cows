@@ -63,12 +63,14 @@ function isValid(guess) {
   if (!pattern.test(guess)) {
     return false;
   }
-  // eslint-disable-next-line no-debugger
-  debugger;
 
   for (let i = 0; i < guess.length; i++) {
-    if (guess.lastIndexOf(guess[i]) !== guess.indexOf(guess[i])) {
-      return false;
+    const temp = guess[i];
+
+    for (let j = i + 1; j < guess.length; j++) {
+      if (temp === guess[j]) {
+        return false;
+      }
     }
   }
 

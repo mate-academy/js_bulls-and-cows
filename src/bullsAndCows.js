@@ -114,4 +114,4 @@ function start() {
 
 start();
 
-// module.exports = bullsAndCows;
+module.exports = bullsAndCows;

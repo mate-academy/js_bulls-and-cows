@@ -25,6 +25,23 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
+
+const generateNumber = function() {
+  const numbers = {};
+  const number = [];
+
+  while (number.length !== 4) {
+    const tempNumber = Math.floor(Math.random() * 10);
+
+    if (!(tempNumber in numbers)) {
+      numbers[tempNumber] = true;
+      number.push(tempNumber);
+    }
+  }
+
+  return number.join('');
+};
+
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (!(+enteredNumber < 9877 && +enteredNumber > 122)) {
     return undefined;
@@ -65,4 +82,36 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   };
 }
 
-module.exports = bullsAndCows;
+function start() {
+  while (window.confirm('Start new game bulls and cows')) {
+    const generatedNum = generateNumber();
+    let approaches = '';
+
+    while (true) {
+      let result = '';
+      const guess = window.prompt('Enter prompt:\n' + approaches);
+
+      if (guess === null) {
+        break;
+      }
+      result = bullsAndCows(generatedNum, guess);
+
+      if (result === undefined) {
+        window.alert('Incorect input data. Repeat input');
+        continue;
+      }
+
+      if (result.bulls === 4) {
+        window.alert('YOU ARE WINNER!!!');
+        break;
+      } else {
+        approaches = 'prompt: ' + guess + ' => {  bulls: '
+        + result.bulls + ', cows: ' + result.cows + ' }\n' + approaches;
+      }
+    }
+  }
+}
+
+start();
+
+// module.exports = bullsAndCows;

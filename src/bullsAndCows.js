@@ -27,6 +27,52 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  if (enteredNumber === '' || !isValid(enteredNumber)) {
+    return undefined;
+  }
+
+  const tempArr = generatedNumber.split('');
+  const result = {};
+  let cows = 0;
+  let bulls = 0;
+
+  for (let i = 0; i < tempArr.length; i++) {
+    if (tempArr[i] === enteredNumber[i]) {
+      bulls++;
+      tempArr[i] = 'B';
+    }
+  }
+  result['bulls'] = bulls;
+
+  for (let i = 0; i < tempArr.length; i++) {
+    for (let j = 0; j < tempArr.length; j++) {
+      if (tempArr[i] === enteredNumber[j]) {
+        cows++;
+        tempArr[i] = 'A';
+      }
+    }
+  }
+  result['cows'] = cows;
+
+  return result;
+}
+
+function isValid(guess) {
+  const pattern = /^[0123456789]{4}$/;
+
+  if (!pattern.test(guess)) {
+    return false;
+  }
+  // eslint-disable-next-line no-debugger
+  debugger;
+
+  for (let i = 0; i < guess.length; i++) {
+    if (guess.lastIndexOf(guess[i]) !== guess.indexOf(guess[i])) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = bullsAndCows;

@@ -26,7 +26,7 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  if (!(+enteredNumber < 9877 && +enteredNumber > 1022)) {
+  if (!(+enteredNumber < 9877 && +enteredNumber > 122)) {
     return undefined;
   }
 

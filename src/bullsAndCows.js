@@ -43,37 +43,28 @@ const generateNumber = function() {
 };
 
 function bullsAndCows(generatedNumber, enteredNumber) {
-  if (!(+enteredNumber < 9877 && +enteredNumber > 122)) {
+  if (!enteredNumber || (enteredNumber.length !== 4)
+  || enteredNumber.search(/[^/d]/g) < 0) {
     return undefined;
   }
-
-  const compNumber = {};
-  const playerNumber = {};
-  const compSoleNumber = {};
-  const playerSoleNumber = {};
 
   let cows = 0;
   let bulls = 0;
 
-  for (let i = 0; i < 4; ++i) {
-    if (generatedNumber[i] in compNumber || enteredNumber[i] in playerNumber) {
-      return undefined;
-    } else {
-      compNumber[generatedNumber[i]] = true;
-      playerNumber[enteredNumber[i]] = true;
-    }
-
-    if (generatedNumber[i] === enteredNumber[i]) {
-      ++bulls;
-    } else {
-      compSoleNumber[generatedNumber[i]] = true;
-      playerSoleNumber[enteredNumber[i]] = true;
+  for (let i = 0; i < 3; ++i) {
+    for (let y = i + 1; y < 4; ++y) {
+      if ((enteredNumber[i] === enteredNumber[y])
+      || (generatedNumber[i] === generatedNumber[y])) {
+        return undefined;
+      }
     }
   }
 
-  for (const val in compSoleNumber) {
-    if (val in playerSoleNumber) {
-      ++cows;
+  for (let i = 0; i < 4; ++i) {
+    for (let y = 0; y < 4; ++y) {
+      if (enteredNumber[i] === generatedNumber[y]) {
+        i === y ? ++bulls : ++cows;
+      }
     }
   }
 

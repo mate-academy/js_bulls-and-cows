@@ -26,14 +26,12 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const resultObj = {};
-
   let countBulls = 0;
   let countCows = 0;
 
   if (enteredNumber === undefined
     || (enteredNumber.length !== 4)
-    || (typeof (+enteredNumber) !== 'number')) {
+    || (typeof +enteredNumber !== 'number')) {
     return undefined;
   }
 
@@ -48,17 +46,15 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   for (let i = 0; i < generatedNumber.length; i++) {
     if (enteredNumber[i] === generatedNumber[i]) {
       countBulls++;
-    } else {
-      if (generatedNumber.includes(enteredNumber[i])) {
-        countCows++;
-      }
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      countCows++;
     }
   }
 
-  resultObj.bulls = countBulls;
-  resultObj.cows = countCows;
-
-  return resultObj;
+  return {
+    cows: countCows,
+    bulls: countBulls,
+  };
 }
 
 module.exports = bullsAndCows;

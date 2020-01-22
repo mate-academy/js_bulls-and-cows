@@ -31,28 +31,18 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  const tempArr = generatedNumber.split('');
-  const result = {};
-  let cows = 0;
-  let bulls = 0;
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
 
-  for (let i = 0; i < tempArr.length; i++) {
-    if (tempArr[i] === enteredNumber[i]) {
-      bulls++;
-      tempArr[i] = 'B';
+  for (let i = 0; i < enteredNumber.length; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      result.bulls++;
+    } else if (enteredNumber.includes(generatedNumber[i])) {
+      result.cows++;
     }
   }
-  result['bulls'] = bulls;
-
-  for (let i = 0; i < tempArr.length; i++) {
-    for (let j = 0; j < tempArr.length; j++) {
-      if (tempArr[i] === enteredNumber[j]) {
-        cows++;
-        tempArr[i] = 'A';
-      }
-    }
-  }
-  result['cows'] = cows;
 
   return result;
 }

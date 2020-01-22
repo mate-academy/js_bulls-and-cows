@@ -26,7 +26,7 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  const RESULT = {
+  const result = {
     bulls: 0,
     cows: 0,
   };
@@ -36,27 +36,24 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  for (let i = 0; i < enteredNumber.length - 1; i++) {
-    for (let j = i + 1; j < enteredNumber.length; j++) {
-      if (enteredNumber[i] === enteredNumber[j]) {
-        return undefined;
-      }
+  for (let i = 0; i < enteredNumber.length; i++) {
+    if (enteredNumber.lastIndexOf(enteredNumber[i])
+    !== enteredNumber.indexOf(enteredNumber[i])) {
+      return undefined;
     }
   }
 
-  for (let i = 0; i < generatedNumber.length; i++) {
-    for (let j = 0; j < enteredNumber.length; j++) {
-      if (generatedNumber[i] === enteredNumber[j]) {
-        if (i === j) {
-          RESULT.bulls++;
-        } else {
-          RESULT.cows++;
-        }
-      }
+  for (let j = 0; j < enteredNumber.length; j++) {
+    const item = generatedNumber.indexOf(enteredNumber[j]);
+
+    if (item === j) {
+      result.bulls++;
+    } else if (item !== -1) {
+      result.cows++;
     }
   }
 
-  return RESULT;
+  return result;
 }
 
 module.exports = bullsAndCows;

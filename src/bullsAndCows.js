@@ -48,20 +48,16 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 }
 
 function isValid(guess) {
-  const pattern = /^[0123456789]{4}$/;
+  const pattern = /^[0-9]{4}$/;
 
   if (!pattern.test(guess)) {
     return false;
   }
 
   for (let i = 0; i < guess.length; i++) {
-    const temp = guess[i];
-
-    for (let j = i + 1; j < guess.length; j++) {
-      if (temp === guess[j]) {
-        return false;
-      }
-    }
+    if (guess.lastIndexOf(guess[i]) !== guess.indexOf(guess[i])) {
+      return false;
+    };
   }
 
   return true;

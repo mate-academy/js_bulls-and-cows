@@ -44,7 +44,8 @@ const generateNumber = function() {
 
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (!enteredNumber || (enteredNumber.length !== 4)
-  || enteredNumber.search(/[^/d]/g) < 0) {
+    || enteredNumber.search(/[^/d]/g) < 0
+  ) {
     return undefined;
   }
 
@@ -54,7 +55,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   for (let i = 0; i < 3; ++i) {
     for (let y = i + 1; y < 4; ++y) {
       if ((enteredNumber[i] === enteredNumber[y])
-      || (generatedNumber[i] === generatedNumber[y])) {
+        || (generatedNumber[i] === generatedNumber[y])
+      ) {
         return undefined;
       }
     }
@@ -69,7 +71,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   return {
-    'bulls': bulls, 'cows': cows,
+    bulls, cows,
   };
 }
 

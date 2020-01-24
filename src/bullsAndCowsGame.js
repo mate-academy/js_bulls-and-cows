@@ -1,6 +1,9 @@
 'use strict';
 
 function bullsAndCowsGame() {
+  let history = '';
+  let count = 0;
+
   function enteredFourDigits() {
     const entered = window.prompt('Enter your number',
       1234);
@@ -24,6 +27,9 @@ function bullsAndCowsGame() {
         }
       }
     }
+
+    count++;
+    history += `${count}.  ${entered}\n`;
 
     return entered;
   }
@@ -77,7 +83,8 @@ function bullsAndCowsGame() {
       window.alert(`You win!!!
 Bulls: ${resultObj.bulls}, Cows: ${resultObj.cows}`);
     } else {
-      window.alert(`Your number: ${enteredNum}
+      window.alert(`Your numbers:
+${history}
 Bulls: ${resultObj.bulls}, Cows: ${resultObj.cows}`);
     }
   }

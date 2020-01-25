@@ -53,20 +53,18 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   let bulls = 0;
 
   for (let i = 0; i < 3; ++i) {
-    for (let y = i + 1; y < 4; ++y) {
-      if ((enteredNumber[i] === enteredNumber[y])
-        || (generatedNumber[i] === generatedNumber[y])
-      ) {
-        return undefined;
-      }
+    if (enteredNumber.includes(enteredNumber[i], i + 1)
+      || generatedNumber.includes(generatedNumber[i], i + 1)
+    ) {
+      return undefined;
     }
   }
 
   for (let i = 0; i < 4; ++i) {
-    for (let y = 0; y < 4; ++y) {
-      if (enteredNumber[i] === generatedNumber[y]) {
-        i === y ? ++bulls : ++cows;
-      }
+    const searchIndex = enteredNumber.indexOf(generatedNumber[i]);
+
+    if (searchIndex >= 0) {
+      i === searchIndex ? ++bulls : ++cows;
     }
   }
 

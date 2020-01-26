@@ -29,7 +29,7 @@ function bullsAndCowsGame() {
     }
 
     count++;
-    history += `${count}.  ${entered}\n`;
+    history = `${count}.  ${entered}\n` + history;
 
     return entered;
   }
@@ -83,9 +83,10 @@ function bullsAndCowsGame() {
       window.alert(`You win!!!
 Bulls: ${resultObj.bulls}, Cows: ${resultObj.cows}`);
     } else {
-      window.alert(`Your numbers:
-${history}
-Bulls: ${resultObj.bulls}, Cows: ${resultObj.cows}`);
+      window.alert(`\nBulls: ${resultObj.bulls}, Cows: ${resultObj.cows}
+
+Your numbers:
+${history}`);
     }
   }
 

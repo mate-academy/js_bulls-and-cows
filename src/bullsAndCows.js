@@ -25,8 +25,52 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
+
+// function numbersGenerator() {
+//   function generatedOneNumber() {
+//     return Math.floor(Math.random() * (0 - 9 + 1)) + 9;
+//   }
+//
+//   const rundomNumbers = [];
+//
+//   for (let i = 0; i < 4; i++) {
+//     rundomNumbers.push(generatedOneNumber());
+//   }
+//
+//   return rundomNumbers;
+// }
+//
+// function getNumbersFromUser() {
+//   const str = prompt('Input four numbers from 0 to 9');
+//
+//   return str;
+// }
+
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const respons = {
+    'bulls': 0,
+    'cows': 0,
+  };
+
+  if (enteredNumber === undefined || enteredNumber.length !== 4) {
+    return undefined;
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (enteredNumber.indexOf(enteredNumber[i], i + 1) > 0) {
+      return undefined;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      respons.bulls += 1;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      respons.cows += 1;
+    }
+  }
+
+  return respons;
 }
 
 module.exports = bullsAndCows;

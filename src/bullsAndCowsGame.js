@@ -37,7 +37,7 @@ function bullsAndCowsGame() {
   let enteredNum = enteredFourDigits();
 
   if (enteredNum === null) {
-    window.alert('Try again later');
+    window.alert('Try again later.');
 
     return undefined;
   }
@@ -93,18 +93,19 @@ ${history}`);
   bullsAndCows(generatedNum, enteredNum);
 
   while (generatedNum !== enteredNum) {
-    if (window.confirm('Continue to play?')) {
+    enteredNum = enteredFourDigits();
+
+    while (enteredNum === undefined) {
       enteredNum = enteredFourDigits();
-
-      while (enteredNum === undefined) {
-        enteredNum = enteredFourDigits();
-      }
-
-      bullsAndCows(generatedNum, enteredNum);
-    } else {
-      window.alert('Try again later');
-      break;
     }
+
+    if (enteredNum === null) {
+      window.alert('Try again later.');
+
+      return undefined;
+    }
+
+    bullsAndCows(generatedNum, enteredNum);
   }
 }
 

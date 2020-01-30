@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+}
+
+.game-button {
+  width: 226px;
+  height: 56px;
+  margin: 0 auto;
+  font-style: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  background-color: #2060f6;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #2060f6;
+}
+
+.game-button:hover {
+  color: #2060f6;
+  background-color: #fff
+}

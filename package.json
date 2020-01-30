@@ -2,7 +2,7 @@
   "name": "bulls-and-cows",
   "version": "1.0.0",
   "description": "The Bulls & Cows game",
-  "main": "src/bullsAndCows.js",
+  "main": "src/js/bullsAndCows.js",
   "scripts": {
     "play": "node src/startGame.js",
     "test": "jest",

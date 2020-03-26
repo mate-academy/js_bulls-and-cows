@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const readline = require('readline');
@@ -7,13 +8,15 @@ const generateRandomDigit = () => `${Math.floor(Math.random() * 10)}`;
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 rl.question('Please enter 4 digits number: ', (enteredNumber) => {
   let generatedNumber = '';
+
   for (let i = 0; i < 4; i += 1) {
     let digit = generateRandomDigit();
+
     while (generatedNumber.includes(digit)) {
       digit = generateRandomDigit();
     }

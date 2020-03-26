@@ -31,16 +31,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     cows: 0,
   };
 
-  if (enteredNumber === undefined || enteredNumber.length > 5) {
+  if (enteredNumber === undefined) {
     return undefined;
-  }
-
-  for (let i = 0; i < enteredNumber.length; i++) {
-    for (let j = i + 1; j < enteredNumber.length; j++) {
-      if (enteredNumber.charAt(i) === enteredNumber.charAt(j)) {
-        return undefined;
-      }
-    }
   }
 
   for (let i = 0; i < generatedNumber.length; i++) {
@@ -59,7 +51,10 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   result.cows = result.cows - result.bulls;
 
-  return ((enteredNumber.match(/\d\d\d\d$/) !== null)) ? result : undefined;
+  return ((enteredNumber.match(/^(?!.*(.).*\1)\d{4}$/) !== null
+  && enteredNumber !== undefined))
+    ? result
+    : undefined;
 }
 
 module.exports = bullsAndCows;

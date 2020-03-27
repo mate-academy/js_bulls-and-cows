@@ -27,11 +27,11 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (!enteredNumber) {
-    return undefined;
+    return;
   }
 
   if (enteredNumber.length !== 4) {
-    return undefined;
+    return;
   }
 
   let bulls = 0;
@@ -39,20 +39,18 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < 4; i++) {
     if (enteredNumber[i] === enteredNumber[i + 1]) {
-      return undefined;
+      return;
     }
 
     if (generatedNumber[i] === enteredNumber[i]) {
       bulls++;
-    } else {
-      if (generatedNumber.includes(enteredNumber[i])) {
-        cows++;
-      }
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      cows++;
     }
   }
 
   return {
-    'bulls': bulls, 'cows': cows,
+    bulls, cows,
   };
 }
 

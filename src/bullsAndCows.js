@@ -44,16 +44,12 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     repeat.add(num);
   };
 
-  const countBulls = (num, index) => {
-    if (num === generatedNumber[index]) {
+  const countingHits = (num, index) => {
+    const matchInGeneratedNum = generatedNumber.indexOf(num);
+
+    if (index === matchInGeneratedNum) {
       hit.bulls += 1;
-    }
-  };
-
-  const countCows = (num, index) => {
-    const indexInGeneratedNum = generatedNumber.indexOf(num);
-
-    if (indexInGeneratedNum !== index && indexInGeneratedNum !== -1) {
+    } else if (matchInGeneratedNum !== -1) {
       hit.cows += 1;
     }
   };
@@ -63,8 +59,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
       return;
     };
 
-    countBulls(enteredNumber[i], i);
-    countCows(enteredNumber[i], i);
+    countingHits(enteredNumber[i], i);
   }
 
   return hit;

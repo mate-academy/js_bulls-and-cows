@@ -51,8 +51,9 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   };
 
   const countCows = (num, index) => {
-    if (generatedNumber.indexOf(num) !== index
-      && generatedNumber.indexOf(num) !== -1) {
+    const indexInGeneratedNum = generatedNumber.indexOf(num);
+
+    if (indexInGeneratedNum !== index && indexInGeneratedNum !== -1) {
       hit.cows += 1;
     }
   };

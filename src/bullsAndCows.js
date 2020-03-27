@@ -26,7 +26,7 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  if (enteredNumber === undefined
+  if (!enteredNumber
       || enteredNumber.length !== 4
       || /\D|(.).*\1/.test(enteredNumber)) {
     return undefined;

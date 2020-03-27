@@ -26,7 +26,43 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (isNaN(enteredNumber) || enteredNumber.length !== 4) {
+    return;
+  }
+
+  const hit = {
+    bulls: 0,
+    cows: 0,
+  };
+  const repeat = new Set();
+
+  const checkRepeat = (num) => {
+    if (repeat.has(num)) {
+      return true;
+    }
+
+    repeat.add(num);
+  };
+
+  const countingHits = (num, index) => {
+    const matchInGeneratedNum = generatedNumber.indexOf(num);
+
+    if (index === matchInGeneratedNum) {
+      hit.bulls += 1;
+    } else if (matchInGeneratedNum !== -1) {
+      hit.cows += 1;
+    }
+  };
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    if (checkRepeat(enteredNumber[i])) {
+      return;
+    };
+
+    countingHits(enteredNumber[i], i);
+  }
+
+  return hit;
 }
 
 module.exports = bullsAndCows;

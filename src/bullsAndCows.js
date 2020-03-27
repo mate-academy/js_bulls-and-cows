@@ -26,41 +26,47 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  if (enteredNumber === undefined) {
+  if (isNaN(enteredNumber) || enteredNumber.length !== 4) {
     return;
   }
 
-  if (isNaN(enteredNumber)) {
-    return;
-  }
+  const hit = {
+    bulls: 0,
+    cows: 0,
+  };
+  const repeat = new Set();
 
-  if (enteredNumber.length === 4) {
-    const hit = {
-      bulls: 0,
-      cows: 0,
-    };
-    const repeat = new Set();
-
-    for (let i = 0; i < enteredNumber.length; i++) {
-      if (repeat.has(enteredNumber[i])) {
-        return;
-      }
-
-      repeat.add(enteredNumber[i]);
-
-      if (enteredNumber[i] === generatedNumber[i]) {
-        hit.bulls += 1;
-      } else {
-        for (let j = 0; j < generatedNumber.length; j++) {
-          if (enteredNumber[i] === generatedNumber[j]) {
-            hit.cows += 1;
-          }
-        }
-      }
+  const checkRepeat = (num) => {
+    if (repeat.has(num)) {
+      return true;
     }
 
-    return hit;
+    repeat.add(num);
+  };
+
+  const countBulls = (num, index) => {
+    if (num === generatedNumber[index]) {
+      hit.bulls += 1;
+    }
+  };
+
+  const countCows = (num, index) => {
+    if (generatedNumber.indexOf(num) !== index
+      && generatedNumber.indexOf(num) !== -1) {
+      hit.cows += 1;
+    }
+  };
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    if (checkRepeat(enteredNumber[i])) {
+      return;
+    };
+
+    countBulls(enteredNumber[i], i);
+    countCows(enteredNumber[i], i);
   }
+
+  return hit;
 }
 
 module.exports = bullsAndCows;

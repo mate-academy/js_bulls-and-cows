@@ -34,12 +34,10 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   const regExp = /\w*/g;
 
   if (enteredNumber === undefined) {
-    return undefined;
+    return;
   }
 
   if (enteredNumber.length === 4 && enteredNumber !== regExp) {
-    loop:
-
     for (let i = 0; i < enteredNumber.length; i++) {
       const charOfEntered = enteredNumber.charAt([i]);
 
@@ -48,7 +46,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
       }
 
       if (enteredNumber[i] === enteredNumber[i + 1]) {
-        return undefined;
+        return;
       }
 
       for (; j < generatedNumber.length;) {
@@ -58,15 +56,15 @@ function bullsAndCows(generatedNumber, enteredNumber) {
           result.bulls++;
           result.cows--;
           j++;
-          continue loop;
+          break;
         } else {
           j++;
-          continue loop;
+          break;
         }
       }
     }
   } else {
-    return undefined;
+    return;
   }
 
   return result;

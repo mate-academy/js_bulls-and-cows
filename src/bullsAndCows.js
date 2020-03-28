@@ -26,7 +26,51 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  // let cowCounter = 0;
+  // let bullsCounter = 0;
+  let j = 0;
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+  const regExp = /\w*/g;
+
+  if (enteredNumber === undefined) {
+    return undefined;
+  }
+
+  if (enteredNumber.length === 4 && enteredNumber !== regExp) {
+    loop1:
+    for (let i = 0; i < enteredNumber.length; i++) {
+      const charOfEntered = enteredNumber.charAt([i]);
+
+      if (generatedNumber.includes(enteredNumber[i])) {
+        result.cows++;
+      }
+
+      if (enteredNumber[i] === enteredNumber[i + 1]) {
+        return undefined;
+      }
+
+      for (; j < generatedNumber.length;) {
+        const charOfGenerated = generatedNumber.charAt([j]);
+
+        if (charOfEntered === charOfGenerated) {
+          result.bulls++;
+          result.cows--;
+          j++;
+          continue loop1;
+        } else {
+          j++;
+          continue loop1;
+        }
+      }
+    }
+  } else {
+    return undefined;
+  }
+
+  return result;
 }
 
 module.exports = bullsAndCows;

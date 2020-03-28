@@ -26,8 +26,6 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // let cowCounter = 0;
-  // let bullsCounter = 0;
   let j = 0;
   const result = {
     bulls: 0,
@@ -40,7 +38,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   if (enteredNumber.length === 4 && enteredNumber !== regExp) {
-    loop1:
+    loop:
+
     for (let i = 0; i < enteredNumber.length; i++) {
       const charOfEntered = enteredNumber.charAt([i]);
 
@@ -59,10 +58,10 @@ function bullsAndCows(generatedNumber, enteredNumber) {
           result.bulls++;
           result.cows--;
           j++;
-          continue loop1;
+          continue loop;
         } else {
           j++;
-          continue loop1;
+          continue loop;
         }
       }
     }

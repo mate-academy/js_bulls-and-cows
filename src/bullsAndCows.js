@@ -26,7 +26,45 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (enteredNumber === undefined) {
+    return undefined;
+  }
+
+  const gessing = generatedNumber.split('');
+  const gess = enteredNumber.split('');
+  let bulls = 0;
+  let cows = 0;
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (let count = 1; count < 4; count++) {
+    for (let counter = count + 1; counter < 4; counter++) {
+      if (gess[count] === gess[counter]) {
+        return undefined;
+      }
+    }
+  }
+
+  if (enteredNumber.length < 4 || enteredNumber.length > 4) {
+    return undefined;
+  } else {
+    for (let i = 0; i < 4; i++) {
+      if (gessing[i] === gess[i]) {
+        bulls++;
+      } else if (gessing.includes(gess[i]) && gessing.indexOf(gess[i]) !== i) {
+        cows++;
+      }
+    }
+
+    const answer = Object.create(result);
+
+    answer.bulls = bulls;
+    answer.cows = cows;
+
+    return answer;
+  }
 }
 
 module.exports = bullsAndCows;

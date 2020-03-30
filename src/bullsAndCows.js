@@ -27,13 +27,14 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (!enteredNumber) {
-    return undefined;
+    return;
   }
 
-  if (enteredNumber.length !== 4
+  if (
+    enteredNumber.length !== 4
     || enteredNumber.match(/(\d)\1|\D/)
       || enteredNumber === '') {
-    return undefined;
+    return;
   }
 
   let bulls = 0;
@@ -48,8 +49,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   return {
-    'bulls': bulls,
-    'cows': cows,
+    bulls,
+    cows,
   };
 }
 

@@ -37,8 +37,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   if (enteredNumber.length === 4) {
     for (let i = 0; i < generatedNumber.length; i++) {
-      const charOfEntered = enteredNumber.charAt([i]);
-      const charOfGenerated = generatedNumber.charAt([i]);
+      const charOfEntered = enteredNumber[i];
+      const charOfGenerated = generatedNumber[i];
 
       if (charOfGenerated === charOfEntered) {
         result.bulls++;

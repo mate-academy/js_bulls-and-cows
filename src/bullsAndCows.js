@@ -26,41 +26,28 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  let j = 0;
   const result = {
     bulls: 0,
     cows: 0,
   };
-  const regExp = /\w*/g;
 
-  if (enteredNumber === undefined) {
+  if (!enteredNumber) {
     return;
   }
 
-  if (enteredNumber.length === 4 && enteredNumber !== regExp) {
-    for (let i = 0; i < enteredNumber.length; i++) {
+  if (enteredNumber.length === 4) {
+    for (let i = 0; i < generatedNumber.length; i++) {
       const charOfEntered = enteredNumber.charAt([i]);
+      const charOfGenerated = generatedNumber.charAt([i]);
 
-      if (generatedNumber.includes(enteredNumber[i])) {
+      if (charOfGenerated === charOfEntered) {
+        result.bulls++;
+      } else if (generatedNumber.includes(enteredNumber[i])) {
         result.cows++;
       }
 
       if (enteredNumber[i] === enteredNumber[i + 1]) {
         return;
-      }
-
-      for (; j < generatedNumber.length;) {
-        const charOfGenerated = generatedNumber.charAt([j]);
-
-        if (charOfEntered === charOfGenerated) {
-          result.bulls++;
-          result.cows--;
-          j++;
-          break;
-        } else {
-          j++;
-          break;
-        }
       }
     }
   } else {

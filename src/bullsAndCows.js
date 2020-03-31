@@ -32,18 +32,14 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   const gessing = generatedNumber.split('');
   const gess = enteredNumber.split('');
-  let bulls = 0;
-  let cows = 0;
   const result = {
     bulls: 0,
     cows: 0,
   };
 
   for (let count = 1; count < 4; count++) {
-    for (let counter = count + 1; counter < 4; counter++) {
-      if (gess[count] === gess[counter]) {
-        return undefined;
-      }
+    if (gess.indexOf(gess[count]) !== gess.lastIndexOf(gess[count])) {
+      return undefined;
     }
   }
 
@@ -52,18 +48,13 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   } else {
     for (let i = 0; i < 4; i++) {
       if (gessing[i] === gess[i]) {
-        bulls++;
+        result.bulls++;
       } else if (gessing.includes(gess[i]) && gessing.indexOf(gess[i]) !== i) {
-        cows++;
+        result.cows++;
       }
     }
 
-    const answer = Object.create(result);
-
-    answer.bulls = bulls;
-    answer.cows = cows;
-
-    return answer;
+    return result;
   }
 }
 

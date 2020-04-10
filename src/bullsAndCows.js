@@ -32,7 +32,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   if (enteredNumber === undefined
     || enteredNumber.length !== 4
-    || isNaN(Number(enteredNumber))) {
+    || isNaN(enteredNumber)) {
     return undefined;
   }
 

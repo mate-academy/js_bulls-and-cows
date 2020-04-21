@@ -3,7 +3,7 @@
 **Read the guideline before start**
 
 1. Replace `<your_account>` with your Github username in the links
-    - [PULL REQUEST](https://github.com/mate-academy/js_get-average/pull/43)
+    - [PULL REQUEST](https://github.com/mate-academy/js_bulls-and-cows/pull/59)
 
 2. [Guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md)
 

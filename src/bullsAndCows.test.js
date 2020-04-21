@@ -4,17 +4,23 @@ const bullsAndCows = require('./bullsAndCows');
 
 test('One bull and 2 cows', () => {
   expect(bullsAndCows('1234', '1345'))
-    .toEqual({ bulls: 1, cows: 2 });
+    .toEqual({
+      bulls: 1, cows: 2,
+    });
 });
 
 test('4 bulls and 0 cows', () => {
   expect(bullsAndCows('1234', '1234'))
-    .toEqual({ bulls: 4, cows: 0 });
+    .toEqual({
+      bulls: 4, cows: 0,
+    });
 });
 
 test('0 bulls and 4 cows', () => {
   expect(bullsAndCows('1234', '4321'))
-    .toEqual({ bulls: 0, cows: 4 });
+    .toEqual({
+      bulls: 0, cows: 4,
+    });
 });
 
 test('Short enetedNumber parameter', () => {

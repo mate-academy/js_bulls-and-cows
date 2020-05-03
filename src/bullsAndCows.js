@@ -27,6 +27,37 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  if (isFinite(+enteredNumber) && enteredNumber.length === 4) {
+    let bulls = 0;
+    let cows = 0;
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = i; j < 3; j++) {
+        if (enteredNumber.charAt(i) === enteredNumber.charAt(j + 1)) {
+          return undefined;
+        }
+      }
+    }
+
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        if (generatedNumber.charAt(i) === enteredNumber.charAt(j)) {
+          if (i === j) {
+            bulls++;
+          } else {
+            cows++;
+          }
+        }
+      }
+    }
+
+    return {
+      bulls: bulls,
+      cows: cows,
+    };
+  }
+
+  return undefined;
 }
 
 module.exports = bullsAndCows;

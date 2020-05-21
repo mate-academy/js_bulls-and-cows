@@ -31,11 +31,11 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   if (enteredNumber === undefined
     || generatedNumber.length !== enteredNumber.length
-    || !isRepeat(enteredNumber)) {
+    || !isRepeatNum(enteredNumber)) {
     return undefined;
   }
 
-  if (!isRepeat(enteredNumber)) {
+  if (!isRepeatNum(enteredNumber)) {
     return undefined;
   }
 
@@ -55,7 +55,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   return bullsCows;
 }
 
-function isRepeat(number) {
+function isRepeatNum(number) {
   const sortedStr = number.split('').sort().join('');
 
   for (let i = 0; i < sortedStr.length; i++) {

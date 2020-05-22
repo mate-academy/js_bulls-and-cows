@@ -26,18 +26,14 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  let bullsNum = 0;
-  let cowsNum = 0;
-
   if (enteredNumber === undefined
     || generatedNumber.length !== enteredNumber.length
     || !isRepeatNum(enteredNumber)) {
     return undefined;
   }
 
-  if (!isRepeatNum(enteredNumber)) {
-    return undefined;
-  }
+  let bullsNum = 0;
+  let cowsNum = 0;
 
   for (let i = 0; i < generatedNumber.length; i++) {
     if (generatedNumber[i] === enteredNumber[i]) {

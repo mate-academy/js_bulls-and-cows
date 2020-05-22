@@ -39,14 +39,12 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   };
 
-  for (let i = 0; i < enteredNumber.length; i++) {
+  for (let i = 0; i < generatedNumber.length; i++) {
     if (enteredNumber.indexOf(enteredNumber[i])
-      !== enteredNumber.lastIndexOf(enteredNumber[i])) {
+    !== enteredNumber.lastIndexOf(enteredNumber[i])) {
       return undefined;
     }
-  }
 
-  for (let i = 0; i < generatedNumber.length; i++) {
     if (generatedNumber[i] === enteredNumber[i]) {
       result.bulls++;
     }

@@ -28,31 +28,30 @@
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (enteredNumber === undefined) {
     return undefined;
-  };
-
-  const arrEnteredNumber = enteredNumber.split('').sort((a, b) => a - b);
+  }
 
   for (let i = 0; i < enteredNumber.length; i++) {
-    if (arrEnteredNumber[i] === arrEnteredNumber[i + 1]) {
+    if (enteredNumber.indexOf(enteredNumber[i]) !== i) {
       return undefined;
-    }
-  }
+    };
+  };
 
   let bulls = 0;
   let cows = 0;
 
   if (enteredNumber.length === generatedNumber.length) {
-    for (let i = 0; i < generatedNumber.length; i++) {
-      if (generatedNumber[i] === enteredNumber[i]) {
+    for (let j = 0; j < generatedNumber.length; j++) {
+      if (generatedNumber[j] === enteredNumber[j]) {
         bulls++;
       }
     }
 
-    for (let i = 0; i < generatedNumber.length; i++) {
-      if (enteredNumber.indexOf(generatedNumber[i]) !== -1) {
+    for (let k = 0; k < generatedNumber.length; k++) {
+      if (enteredNumber.indexOf(generatedNumber[k]) !== -1) {
         cows++;
       };
     };
+
     cows = cows - bulls;
 
     return {

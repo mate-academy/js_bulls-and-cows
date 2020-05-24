@@ -27,6 +27,33 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  let bulls = 0;
+  let cows = 0;
+
+  if (enteredNumber === undefined
+    || enteredNumber.length !== 4
+    || !Number(enteredNumber)) {
+    return undefined;
+  }
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      bulls++;
+    } else if (enteredNumber[i] === enteredNumber[i + 1]) {
+      return undefined;
+    }
+  }
+
+  for (let j = 0; j < enteredNumber.length; j++) {
+    if (enteredNumber.includes(generatedNumber[j])
+    && enteredNumber[j] !== generatedNumber[j]) {
+      cows++;
+    }
+  }
+
+  return {
+    bulls: bulls, cows: cows,
+  };
 }
 
 module.exports = bullsAndCows;

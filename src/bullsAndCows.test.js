@@ -47,7 +47,7 @@ test('Long enetedNumber parameter', () => {
 });
 
 test('enteredNumber parameter contains repeating digits', () => {
-  expect(bullsAndCows('1234', '3122'))
+  expect(bullsAndCows('1234', '1122'))
     .toBe(undefined);
 });
 

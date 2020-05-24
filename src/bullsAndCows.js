@@ -32,21 +32,18 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   if (enteredNumber === undefined
     || enteredNumber.length !== 4
-    || !Number(enteredNumber)) {
+    || !Number(enteredNumber)
+    || enteredNumber[0] === enteredNumber[1]
+    || enteredNumber[2] === enteredNumber[3]
+    || enteredNumber[1] === enteredNumber[2]
+    || enteredNumber[3] === enteredNumber[0]) {
     return undefined;
   }
 
   for (let i = 0; i < generatedNumber.length; i++) {
     if (generatedNumber[i] === enteredNumber[i]) {
       bulls++;
-    } else if (enteredNumber[i] === enteredNumber[i + 1]) {
-      return undefined;
-    }
-  }
-
-  for (let j = 0; j < enteredNumber.length; j++) {
-    if (enteredNumber.includes(generatedNumber[j])
-    && enteredNumber[j] !== generatedNumber[j]) {
+    } else if (generatedNumber.includes(enteredNumber[i])) {
       cows++;
     }
   }

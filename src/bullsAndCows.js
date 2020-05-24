@@ -31,7 +31,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   if (enteredNumber === undefined
     || enteredNumber.length !== generatedNumber.length
-    || isNaN(+enteredNumber)) {
+    || !isFinite(enteredNumber)) {
     return undefined;
   } else {
     for (let i = 0; i < enteredNumber.length; i++) {

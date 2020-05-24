@@ -34,13 +34,11 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     || isNaN(+enteredNumber)) {
     return undefined;
   } else {
-    for (let j = 0; j < enteredNumber.length; j++) {
-      if (enteredNumber.indexOf(enteredNumber[j]) !== j) {
+    for (let i = 0; i < enteredNumber.length; i++) {
+      if (enteredNumber.indexOf(enteredNumber[i]) !== i) {
         return undefined;
       }
-    }
 
-    for (let i = 0; i < enteredNumber.length; i++) {
       if (enteredNumber[i] === generatedNumber[i]) {
         bulls++;
       } else {

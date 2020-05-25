@@ -38,8 +38,11 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   let countedCorrectPosition = 0;
   let countedCorrectNumber = 0;
+  const countedBullsAndCows = {};
 
-  return countBullsAndCows();
+  countBullsAndCows();
+
+  return countedBullsAndCows;
 
   function countBullsAndCows() {
     for (let i = 0; i < generatedNumber.length; i++) {
@@ -52,9 +55,8 @@ function bullsAndCows(generatedNumber, enteredNumber) {
       }
     }
 
-    return {
-      bulls: countedCorrectPosition, cows: countedCorrectNumber,
-    };
+    countedBullsAndCows.bulls = countedCorrectPosition;
+    countedBullsAndCows.cows = countedCorrectNumber;
   }
 }
 

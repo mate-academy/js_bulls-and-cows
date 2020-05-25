@@ -28,11 +28,12 @@
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (enteredNumber === undefined
     || enteredNumber.length !== 4
-    || !Number(enteredNumber)) {
+    || !Number(enteredNumber)
+    || (new Set(enteredNumber)).size !== 4) {
     return undefined;
   }
 
-  let result = {
+  const gameScore = {
     bulls: 0,
     cows: 0,
   };
@@ -40,19 +41,14 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   for (let i = 0; i < enteredNumber.length; i++) {
     const curNum = enteredNumber[i];
 
-    if (enteredNumber.includes(curNum, i + 1)) {
-      result = undefined;
-      break;
-    }
-
     if (generatedNumber[i] === curNum) {
-      result.bulls++;
+      gameScore.bulls++;
     } else if (generatedNumber.includes(curNum)) {
-      result.cows++;
+      gameScore.cows++;
     }
   }
 
-  return result;
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

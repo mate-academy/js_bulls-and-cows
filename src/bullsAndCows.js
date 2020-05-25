@@ -26,24 +26,22 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  if (!enteredNumber || enteredNumber.toString(10).length !== 4) {
+  if (!enteredNumber || enteredNumber.length !== 4) {
     return undefined;
   }
 
-  const generatedString = generatedNumber.toString(10);
-  const enteredString = enteredNumber.toString(10);
   const score = {
-    bulls: 0,
-    cows: 0,
+    'bulls': 0,
+    'cows': 0,
   };
 
   for (let i = 0; i < 4; i++) {
-    if (enteredString.indexOf(enteredString[i])
-        !== enteredString.lastIndexOf(enteredString[i])) {
+    if (enteredNumber.indexOf(enteredNumber[i])
+        !== enteredNumber.lastIndexOf(enteredNumber[i])) {
       return undefined;
-    } else if (generatedString[i] === enteredString[i]) {
+    } else if (generatedNumber[i] === enteredNumber[i]) {
       score.bulls += 1;
-    } else if (enteredString.indexOf(generatedString[i]) !== -1) {
+    } else if (enteredNumber.indexOf(generatedNumber[i]) !== -1) {
       score.cows += 1;
     }
   }

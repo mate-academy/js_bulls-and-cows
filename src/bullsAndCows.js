@@ -33,10 +33,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   if (enteredNumber === undefined
     || enteredNumber.length !== 4
     || !Number(enteredNumber)
-    || enteredNumber[0] === enteredNumber[1]
-    || enteredNumber[2] === enteredNumber[3]
-    || enteredNumber[1] === enteredNumber[2]
-    || enteredNumber[3] === enteredNumber[0]) {
+    || new Set(enteredNumber).size !== generatedNumber.length) {
     return undefined;
   }
 

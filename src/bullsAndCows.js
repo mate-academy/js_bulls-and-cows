@@ -26,7 +26,32 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (typeof enteredNumber === 'undefined'
+    || enteredNumber.length !== 4
+    || enteredNumber
+      .split('')
+      // eslint-disable-next-line max-len
+      .filter((item, index, array) => array.lastIndexOf(item) === array.indexOf(item)).length !== enteredNumber.length) {
+    return undefined;
+  };
+
+  let cowsCounter = 0;
+  let bullsCounter = 0;
+
+  for (let i = 0; i < 4; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      bullsCounter++;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      cowsCounter++;
+    }
+  }
+
+  const result = {
+    bulls: bullsCounter,
+    cows: cowsCounter,
+  };
+
+  return result;
 }
 
 module.exports = bullsAndCows;

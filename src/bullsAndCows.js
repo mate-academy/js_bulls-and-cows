@@ -35,7 +35,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < enteredNumber.length; i++) {
     if ((enteredNumber.split(enteredNumber[i]).length - 1) > 1) {
-      return undefined;
+      return;
     }
 
     if (generatedNumber[i] === enteredNumber[i]) {

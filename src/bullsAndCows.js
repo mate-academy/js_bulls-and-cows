@@ -46,7 +46,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   }
 
   return {
-    bulls: bulls, cows: cows,
+    bulls, cows,
   };
 }
 

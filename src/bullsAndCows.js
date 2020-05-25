@@ -43,15 +43,12 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     for (let j = 0; j < generatedNumber.length; j++) {
       if (generatedNumber[j] === enteredNumber[j]) {
         bulls++;
-      }
-    }
+      };
 
-    for (let k = 0; k < generatedNumber.length; k++) {
-      if (enteredNumber.indexOf(generatedNumber[k]) !== -1) {
+      if (enteredNumber.indexOf(generatedNumber[j]) !== -1) {
         cows++;
       };
-    };
-
+    }
     cows = cows - bulls;
 
     return {

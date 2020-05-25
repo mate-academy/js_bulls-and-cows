@@ -30,34 +30,31 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  const isValueRepeated = enteredNumber.replace(/(.)(?=.*\1)/g, '');
+  const isValueRepeated = new Set([...enteredNumber]);
 
-  if (generatedNumber.length !== isValueRepeated.length) {
+  if (generatedNumber.length !== isValueRepeated.size) {
     return undefined;
   }
 
   let countedCorrectPosition = 0;
   let countedCorrectNumber = 0;
-  const countedBullsAndCows = {};
 
   countBullsAndCows();
-
-  return countedBullsAndCows;
 
   function countBullsAndCows() {
     for (let i = 0; i < generatedNumber.length; i++) {
       if (generatedNumber[i] === enteredNumber[i]) {
         countedCorrectPosition++;
-      } else if (generatedNumber[i] !== enteredNumber[i]) {
-        if (generatedNumber.includes(enteredNumber[i])) {
-          countedCorrectNumber++;
-        }
+      } else if (generatedNumber.includes(enteredNumber[i])) {
+        countedCorrectNumber++;
       }
     }
-
-    countedBullsAndCows.bulls = countedCorrectPosition;
-    countedBullsAndCows.cows = countedCorrectNumber;
   }
+
+  return {
+    bulls: countedCorrectPosition,
+    cows: countedCorrectNumber,
+  };
 }
 
 module.exports = bullsAndCows;

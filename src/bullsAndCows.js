@@ -28,9 +28,12 @@
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
   const storage = {};
-  const regex = /^\d{4}$/;
-  let cows = 0;
-  let bulls = 0;
+  // this regex checks if number has 4 unique digits
+  const regex = /^(?:(\d)(?!.*\1)){4}$/;
+  const yourAnswer = {
+    'bulls': 0,
+    'cows': 0,
+  };
 
   if (!(regex.test(enteredNumber))) {
     return undefined;
@@ -42,25 +45,15 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
   for (let i = 0; i < enteredNumber.length; i++) {
     const currentValue = enteredNumber[i];
-    // check for repeating numbers
-
-    if (currentValue === enteredNumber[i + 1]) {
-      return undefined;
-    }
 
     if (storage.hasOwnProperty(currentValue)) {
       if (storage[currentValue] === i) {
-        bulls++;
+        yourAnswer['bulls']++;
       } else {
-        cows++;
+        yourAnswer['cows']++;
       }
     }
   }
-
-  const yourAnswer = {
-    'bulls': bulls,
-    'cows': cows,
-  };
 
   return yourAnswer;
 }

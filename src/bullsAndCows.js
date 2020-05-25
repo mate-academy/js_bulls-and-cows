@@ -26,9 +26,8 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
-  const generated = '' + generatedNumber;
   const entered = '' + enteredNumber;
+  const generated = '' + generatedNumber;
   let bulls = 0;
   let cows = 0;
 
@@ -44,11 +43,12 @@ function bullsAndCows(generatedNumber, enteredNumber) {
       cows++;
     }
 
-    // let matches = entered.match(/${entered([i])}/gi);
+    const currentLetterQuery = new RegExp(entered[i], 'gi');
+    const matches = entered.match(currentLetterQuery);
 
-    // if (matches.length > 1) {
-    //   return;
-    // }
+    if (matches.length > 1) {
+      return;
+    }
   }
 
   return {
@@ -56,5 +56,5 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     'cows': cows,
   };
 }
-bullsAndCows('1234', '1122');
+
 module.exports = bullsAndCows;

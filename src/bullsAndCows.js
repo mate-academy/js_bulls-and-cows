@@ -39,15 +39,11 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   let countedCorrectPosition = 0;
   let countedCorrectNumber = 0;
 
-  countBullsAndCows();
-
-  function countBullsAndCows() {
-    for (let i = 0; i < generatedNumber.length; i++) {
-      if (generatedNumber[i] === enteredNumber[i]) {
-        countedCorrectPosition++;
-      } else if (generatedNumber.includes(enteredNumber[i])) {
-        countedCorrectNumber++;
-      }
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      countedCorrectPosition++;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      countedCorrectNumber++;
     }
   }
 

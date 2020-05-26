@@ -28,6 +28,7 @@
 function bullsAndCows(generatedNumber, enteredNumber) {
   const entered = '' + enteredNumber;
   const generated = '' + generatedNumber;
+  let matches = '';
   let bulls = 0;
   let cows = 0;
 
@@ -44,11 +45,12 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     }
 
     const currentLetterQuery = new RegExp(entered[i], 'gi');
-    const matches = entered.match(currentLetterQuery);
 
-    if (matches.length > 1) {
-      return;
-    }
+    matches = entered.match(currentLetterQuery);
+  }
+
+  if (matches.length > 1) {
+    return;
   }
 
   return {

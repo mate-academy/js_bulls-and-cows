@@ -32,7 +32,6 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   }
 
-  const result = {};
   let bulls = 0;
   let cows = 0;
 
@@ -46,10 +45,10 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     }
   }
 
-  result['bulls'] = bulls;
-  result['cows'] = cows;
-
-  return result;
+  return {
+    bulls,
+    cows,
+  };
 }
 
 module.exports = bullsAndCows;

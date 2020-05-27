@@ -47,13 +47,10 @@ function bullsAndCows(generatedNumber, enteredNumber) {
 
     if (generatedNumber[i] === enteredNumber[i]) {
       result.bulls++;
-    }
-  }
-
-  for (let j = 0; j < generatedNumber.length; j++) {
-    if (generatedNumber.indexOf(enteredNumber[j]) !== -1
-      && generatedNumber[j] !== enteredNumber[j]) {
-      result.cows++;
+    } else {
+      if (generatedNumber.indexOf(enteredNumber[i]) !== -1) {
+        result.cows++;
+      }
     }
   }
 

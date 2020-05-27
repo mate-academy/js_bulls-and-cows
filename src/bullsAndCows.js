@@ -28,10 +28,7 @@
 function bullsAndCows(generatedNumber, enteredNumber) {
   if (typeof enteredNumber === 'undefined'
     || enteredNumber.length !== 4
-    || enteredNumber
-      .split('')
-      // eslint-disable-next-line max-len
-      .filter((item, index, array) => array.lastIndexOf(item) === array.indexOf(item)).length !== enteredNumber.length) {
+    || new Set(enteredNumber).size !== 4) {
     return undefined;
   };
 

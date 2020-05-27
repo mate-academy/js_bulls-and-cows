@@ -32,23 +32,20 @@ function bullsAndCows(generatedNumber, enteredNumber) {
     return undefined;
   };
 
-  let cowsCounter = 0;
-  let bullsCounter = 0;
+  const counters = {
+    'bulls': 0,
+    'cows': 0,
+  };
 
   for (let i = 0; i < 4; i++) {
     if (generatedNumber[i] === enteredNumber[i]) {
-      bullsCounter++;
+      counters.bulls++;
     } else if (generatedNumber.includes(enteredNumber[i])) {
-      cowsCounter++;
+      counters.cows++;
     }
   }
 
-  const result = {
-    bulls: bullsCounter,
-    cows: cowsCounter,
-  };
-
-  return result;
+  return counters;
 }
 
 module.exports = bullsAndCows;

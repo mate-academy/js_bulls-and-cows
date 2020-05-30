@@ -27,6 +27,35 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  const storage = {};
+  // this regex checks if number has 4 unique digits
+  const regex = /^(?:(\d)(?!.*\1)){4}$/;
+  const yourAnswer = {
+    'bulls': 0,
+    'cows': 0,
+  };
+
+  if (!(regex.test(enteredNumber))) {
+    return undefined;
+  }
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    storage[generatedNumber[i]] = i;
+  }
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    const currentValue = enteredNumber[i];
+
+    if (storage.hasOwnProperty(currentValue)) {
+      if (storage[currentValue] === i) {
+        yourAnswer['bulls']++;
+      } else {
+        yourAnswer['cows']++;
+      }
+    }
+  }
+
+  return yourAnswer;
 }
 
 module.exports = bullsAndCows;

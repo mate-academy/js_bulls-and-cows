@@ -26,7 +26,34 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const regExp = /^[A-Za-z]+$/;
+  const result = {};
+
+  result.bulls = 0;
+  result.cows = 0;
+
+  if (enteredNumber === undefined || enteredNumber.length !== 4
+    || regExp.test(enteredNumber)) {
+    return;
+  }
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    for (let j = 0; j < enteredNumber.length; j++) {
+      if (generatedNumber[i] === enteredNumber[j] && i === j) {
+        result.bulls++;
+      }
+
+      if (generatedNumber[i] === enteredNumber[j] && i !== j) {
+        result.cows++;
+      }
+
+      if (enteredNumber[i] === enteredNumber[j] && i !== j) {
+        return undefined;
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = bullsAndCows;

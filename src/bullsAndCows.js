@@ -26,7 +26,31 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (typeof enteredNumber === 'undefined' || enteredNumber.length !== 4) {
+    return undefined;
+  }
+
+  const isValueRepeated = new Set([...enteredNumber]);
+
+  if (generatedNumber.length !== isValueRepeated.size) {
+    return undefined;
+  }
+
+  let countedCorrectPosition = 0;
+  let countedCorrectNumber = 0;
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      countedCorrectPosition++;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      countedCorrectNumber++;
+    }
+  }
+
+  return {
+    bulls: countedCorrectPosition,
+    cows: countedCorrectNumber,
+  };
 }
 
 module.exports = bullsAndCows;

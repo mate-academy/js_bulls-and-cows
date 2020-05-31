@@ -23,7 +23,7 @@ test('0 bulls and 4 cows', () => {
     });
 });
 
-test('Short enetedNumber parameter', () => {
+test('Short enteredNumber parameter', () => {
   expect(bullsAndCows('1234', '12'))
     .toBe(undefined);
 });
@@ -41,7 +41,7 @@ test('Wrong enteredNumber parameter', () => {
     .toBe(undefined);
 });
 
-test('Long enetedNumber parameter', () => {
+test('Long enteredNumber parameter', () => {
   expect(bullsAndCows('1234', '123456'))
     .toBe(undefined);
 });

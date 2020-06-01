@@ -27,6 +27,33 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  const regex = /[A-Za-z]/g;
+
+  if (enteredNumber === undefined || enteredNumber.length !== 4
+    || enteredNumber.match(regex) !== null) {
+    return undefined;
+  };
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    if (enteredNumber.indexOf(enteredNumber[i])
+    !== enteredNumber.lastIndexOf(enteredNumber[i])) {
+      return undefined;
+    }
+
+    if (generatedNumber[i] === enteredNumber[i]) {
+      result.bulls++;
+    } else if
+    (generatedNumber.indexOf(enteredNumber[i]) !== -1) {
+      result.cows++;
+    }
+  }
+
+  return result;
 }
 
 module.exports = bullsAndCows;

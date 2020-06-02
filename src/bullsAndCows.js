@@ -38,8 +38,7 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   for (let i = 0; i < generatedNumber.length; i++) {
     if (generatedNumber[i] === enteredNumber[i]) {
       countOfBulls++;
-    } else if (generatedNumber[i] !== enteredNumber[i]
-      && enteredNumber.includes(generatedNumber[i])) {
+    } else if (enteredNumber.includes(generatedNumber[i])) {
       countOfCows++;
     }
   }

@@ -25,8 +25,42 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
-function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+function bullsAndCows(generatedNumber, enteredNumber = '') {
+  if (enteredNumber.length < 4
+    || enteredNumber.length > 4
+    || isNaN(+enteredNumber)) {
+    return undefined;
+  }
+
+  const animalStall = {
+    bulls: 0, cows: 0,
+  };
+
+  const computerNumbers = generatedNumber.split('');
+  let isReapitingCounter = 0;
+
+  for (let i = 0; i < 3; i++) {
+    if (enteredNumber[i] === enteredNumber[i + 1]) {
+      isReapitingCounter += 1;
+    }
+  }
+
+  if (isReapitingCounter) {
+    return undefined;
+  }
+
+  let fromIndex = 0;
+
+  enteredNumber.split('').forEach((number, position) => {
+    if (computerNumbers.indexOf(number, fromIndex) === position) {
+      animalStall.bulls += 1;
+      fromIndex = position;
+    } else if (computerNumbers.indexOf(number) >= 0) {
+      animalStall.cows += 1;
+    }
+  });
+
+  return animalStall;
 }
 
 module.exports = bullsAndCows;

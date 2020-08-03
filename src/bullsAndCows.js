@@ -27,6 +27,36 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  if (!(/^\d{4}$/).test(enteredNumber)) {
+    return undefined;
+  }
+
+  for (const subStr of enteredNumber) {
+    if (enteredNumber.indexOf(subStr)
+      !== enteredNumber.lastIndexOf(subStr)) {
+      return undefined;
+    }
+  }
+
+  const count = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (const subStr of enteredNumber) {
+    if (generatedNumber.indexOf(subStr) === -1) {
+      continue;
+    }
+
+    if (generatedNumber.indexOf(subStr)
+      === enteredNumber.indexOf(subStr)) {
+      count.bulls += 1;
+    } else {
+      count.cows += 1;
+    }
+  }
+
+  return count;
 }
 
 module.exports = bullsAndCows;

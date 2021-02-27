@@ -2,7 +2,10 @@
 
 **Read the guideline before start**
 
-[Guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md)
+1. Replace `<your_account>` with your Github username in the links
+    - [PULL REQUEST](https://github.com/mate-academy/js_bulls-and-cows/pull/59)
+
+2. [Guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md)
 
 ## Rules
 
@@ -15,7 +18,7 @@
 ## Example
 Computer makes `1234`, user prints `1345`. The result is one `bull` (guessed
 digit `1` is on it's place) and 2 `cows` (digits `3` and `4` are present but on
-wrong places). 
+wrong places).
 
 ## Additional scripts
 `npm run play` - run game

@@ -25,8 +25,55 @@
  *
  * @return {object} - like {bulls: 0, cows: 0}
  */
+
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  let bullsAndCowsResult = {
+    'bulls': 0,
+    'cows': 0,
+  };
+
+  if (enteredNumber === undefined
+    || isRepeatSymbol(enteredNumber)
+    || enteredNumber.length !== generatedNumber.length
+    || isNaN(Number(enteredNumber))) {
+    return undefined;
+  }
+
+  for (let i = 0; i < generatedNumber.length; i++) {
+    // if (generatedNumber[i] === enteredNumber[i]) {
+    //   bullsAndCowsResult['bulls'] = bullsAndCowsResult['bulls'] + 1;
+    // } else if (generatedNumber.includes(enteredNumber[i])) {
+    //   bullsAndCowsResult['cows'] = bullsAndCowsResult['cows'] + 1;
+    // }
+    if (generatedNumber[i] === enteredNumber[i]) {
+      bullsAndCowsResult = {
+        ...bullsAndCowsResult,
+        bulls: bullsAndCowsResult.bulls + 1,
+      };
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      bullsAndCowsResult = {
+        ...bullsAndCowsResult,
+        cows: bullsAndCowsResult.cows + 1,
+      };
+    }
+  }
+
+  return bullsAndCowsResult;
+}
+
+function isRepeatSymbol(string) {
+  for (let i = 0; i < string.length; i++) {
+    let countSymbol = 0;
+    for (let j = 0; j < string.length; j++) {
+      if (string[i] === string[j]) {
+        countSymbol = countSymbol + 1;
+      }
+      if (countSymbol > 1) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 module.exports = bullsAndCows;

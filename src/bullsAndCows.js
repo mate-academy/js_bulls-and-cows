@@ -26,7 +26,29 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (enteredNumber === undefined
+    || enteredNumber.length !== 4
+    || !Number(enteredNumber)
+    || (new Set(enteredNumber)).size !== 4) {
+    return undefined;
+  }
+
+  const gameScore = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    const curNum = enteredNumber[i];
+
+    if (generatedNumber[i] === curNum) {
+      gameScore.bulls++;
+    } else if (generatedNumber.includes(curNum)) {
+      gameScore.cows++;
+    }
+  }
+
+  return gameScore;
 }
 
 module.exports = bullsAndCows;

@@ -27,6 +27,40 @@
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
   // write code here
+  if (enteredNumber === '' || !isValid(enteredNumber)) {
+    return undefined;
+  }
+
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    if (generatedNumber[i] === enteredNumber[i]) {
+      result.bulls++;
+    } else if (enteredNumber.includes(generatedNumber[i])) {
+      result.cows++;
+    }
+  }
+
+  return result;
+}
+
+function isValid(guess) {
+  const pattern = /^[0-9]{4}$/;
+
+  if (!pattern.test(guess)) {
+    return false;
+  }
+
+  for (let i = 0; i < guess.length; i++) {
+    if (guess.lastIndexOf(guess[i]) !== guess.indexOf(guess[i])) {
+      return false;
+    };
+  }
+
+  return true;
 }
 
 module.exports = bullsAndCows;

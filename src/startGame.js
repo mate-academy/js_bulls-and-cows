@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable */
 
 const readline = require('readline');
 const bullsAndCows = require('./bullsAndCows');

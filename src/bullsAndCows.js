@@ -26,7 +26,28 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  if (typeof (enteredNumber) === 'undefined'
+  || enteredNumber.length !== 4
+  || isNaN(enteredNumber) === true) {
+    return undefined;
+  }
+  const score = { bulls: 0, cows: 0 };
+
+  for (let i = 0; i < enteredNumber.length; i++) {
+    // перевірка на унікальність чисел саме тут і тут саме потрібен indexOf,
+    // яким я перевіряю чи є повтори одного і того ж числа за межами поточного
+    // індексу
+    if (enteredNumber.indexOf(enteredNumber[i], 0) !== i) {
+      return undefined;
+    }
+
+    if (enteredNumber[i] === generatedNumber[i]) {
+      score.bulls++;
+    } else if (generatedNumber.includes(enteredNumber[i])) {
+      score.cows++;
+    }
+  }
+  return score;
 }
 
 module.exports = bullsAndCows;

@@ -26,7 +26,34 @@
  * @return {object} - like {bulls: 0, cows: 0}
  */
 function bullsAndCows(generatedNumber, enteredNumber) {
-  // write code here
+  const generatedNum = generatedNumber;
+  let enteredNum = '';
+  const gameScore = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  if (enteredNumber !== '' && !isNaN(enteredNumber)) {
+    enteredNum = enteredNumber;
+  } else {
+    return undefined;
+  }
+
+  enteredNum = Array.from(new Set(enteredNumber.split(''))).join('');
+
+  if (generatedNum.length !== enteredNum.length) {
+    return undefined;
+  }
+
+  for (let i = 0; i < generatedNum.length; i += 1) {
+    if (generatedNum[i] === enteredNum[i]) {
+      gameScore.bulls += 1;
+    } else if (generatedNum.includes(enteredNum[i])) {
+      gameScore.cows += 1;
+    }
+  }
+
+  return gameScore;
 }
 
 module.exports = bullsAndCows;
